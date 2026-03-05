@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Elsewhere</title>
+
+  <!-- Google fonts used for typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Vampiro+One&display=swap"
+    rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" type="text/css" href="styles/main.css" />
+</head>
+
+<body>
+  <!-- Title section -->
+  <div class="container title">
+    <h1 class="vampiro-one-regular">Elsewhere</h1>
+    <h3 class="alumni-sans-pinstripe-regular">Finding small comfort in data</h3>
+  </div>
+  <!-- Illustration + current location -->
+  <div class="container img">
+    <img src="/images/rain.png" class="img" />
+    <div class="selflocation">
+      <p>Your location:</p>
+
+      <!-- Only renders if weather data was obtained -->
+      <% if (here) { %>
+        <h2 class="city vampiro-one-regular">
+          <%= here.name %>
+        </h2>
+        <p>
+          <%= here.temp %>°C
+        </p>
+        <p>
+          <%= here.light %>
+        </p>
+        <p>wind <%= here.wind %> m/s</p>
+        <p>
+          <%= here.description %>
+        </p>
+        <% } %>
+    </div>
+  </div>
+
+  <!-- Comparison cities -->
+  <section class="comparison">
+
+    <!-- Preventing an error in case cities would become undefined -->
+    <% if (cities && cities.length> 0) {%>
+      <!-- Loop through comparison cities returned by the server -->
+      <% cities.forEach(city=> { %>
+        <div class="card">
+          <!-- Weather conditions visible by default -->
+          <div class="card-text">
+            <p>
+              <%= city.temp %>°C
+            </p>
+            <p>
+              <%= city.light %>
+            </p>
+            <p>wind <%= city.wind %> m/s</p>
+
+            <!-- If there is "rain" or "snow", show the longer description of conditions -->
+            <% if (city.precipitation !==null) { %>
+              <p>
+                <%= city.description %>
+              </p>
+              <% } %>
+
+
+          </div>
+
+          <!-- Hover layer revealing the city name -->
+          <div class="card-overlay">
+            <p class="card-city">
+              <%= city.name %>
+            </p>
+          </div>
+        </div>
+        <% }) %>
+          <%} %>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+
+    <p>
+      Using OpenWeather and Geocoding API
+    </p>
+    <p>
+      © <a href="https://github.com/rabbitshaped">Ira Baraton</a>
+      <!-- Print the current year automatically -->
+      <% const today=new Date(); %>
+        <%= today.getFullYear(); %>
+    </p>
+  </footer>
+</body>
+
+</html>
