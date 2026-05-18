@@ -1,279 +1,371 @@
 :root {
-	--card-height: clamp(180px, 25vh, 320px);
-	--card-width: clamp(140px, calc(var(--card-height) / 1.5), 260px);
-	--bg: #212534;
-	--accent: #ff4500;
-	--text: #b2e9e9;
+	--bg: rgba(255, 255, 255, 0.35);
+	--line: #172033;
+	--cyan: #bfdedf;
+	--cyan-dark: #7aa7ad;
+	--orange: #f26722;
+	--text: #1f2940;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-	min-height: 100vh;
-	background: #212534;
+	background: #fef6e9;
+	font-family: "Space Mono", monospace;
+	color: var(--text);
 	display: flex;
-	align-items: center;
-	flex-direction: column;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	box-sizing: border-box;
-	text-align: center;
 	justify-content: center;
-	background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23212534ff'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='1' stroke='%232e3344ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+	padding: 2rem;
 }
 
-/* ---------- Typography ---------- */
-
-h1 {
-	color: #b2e9e9;
-	font-size: 3.7rem;
-	padding: 0px;
-}
-
-h2 {
-	font-size: 2rem;
-	color: #ff4500;
-}
-
-h3 {
-	font-size: 2rem;
-	color: #b2e9e9;
-	text-transform: uppercase;
-	letter-spacing: 0.3rem;
-	padding: 0px;
-}
-
-.container.title h1,
-.container.title h3 {
-	margin: 0;
-	gap: 0.5rem;
-}
-
-p {
-	color: #b2e9e9;
-	font-family: monospace;
-}
-
-.container.title {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0px;
-}
-
-.selflocation p,
-.selflocation h2,
-.card-text p {
-	margin: 0;
-}
-
-.container.img {
-	display: flex;
-	align-items: flex-start;
-	margin: 0 auto;
-}
-
-.container.img .img {
-	flex: 2 1 0;
-	max-height: 40vh;
-	width: auto;
-	max-width: 100%;
-	height: auto;
-	margin-top: 40px;
-	margin-bottom: 30px;
-}
-
-.selflocation {
-	margin-top: 100px;
-	padding: 30px;
-	border-radius: 50%;
-	background-color: #b2e9e9;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 0.3rem;
-}
-
-.selflocation p {
-	color: #212534;
-}
-
-.selflocation h2 {
-	line-height: 1.1;
-}
-
-.comparison {
-	display: flex;
-	gap: 1.5rem;
-	justify-content: center;
-	margin-top: 2rem;
-	flex-wrap: wrap;
-}
-
-.card {
-	background-color: #212534;
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: var(--card-width);
-	height: var(--card-height);
-	padding: 1rem;
+.page-frame {
+	width: min(1400px, 100%);
+	background: var(--bg);
+	border: 2px solid var(--line);
+	border-radius: 32px;
 	position: relative;
-	border-radius: 20px;
-	align-items: center;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	font-size: 1.5rem;
-	border: 1px solid #b2e9e9;
 	overflow: hidden;
+	padding: 3rem 2rem 2rem;
 }
 
-/* Weather text (default visible) */
-.card-text {
-	z-index: 1;
-	opacity: 1;
-	transition: opacity 0.3s ease;
+/* -------------------------------- */
+/* HEADER */
+/* -------------------------------- */
+
+.hero-header {
+	text-align: center;
+	margin-bottom: 5.5rem;
+}
+
+.hero-header h1 {
+	font-family: "Pacifico", cursive;
+	font-size: clamp(4.5rem, 6vw, 3rem);
+	font-weight: normal;
+	color: var(--line);
+	line-height: 1;
+	margin-bottom: 0.5rem;
+}
+
+.hero-header p {
+	font-family: "Quicksand", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 1.3rem;
+	color: var(--cyan-dark);
+	margin-top: 0.5rem;
+}
+
+/* -------------------------------- */
+/* HERO LAYOUT */
+/* -------------------------------- */
+
+.hero-layout {
+	display: grid;
+	grid-template-columns: 1.2fr 0.8fr;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+/* -------------------------------- */
+/* ILLUSTRATION */
+/* -------------------------------- */
+
+.hero-illustration {
+	position: relative;
+	min-height: 500px;
 	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.weather-girl {
+	position: relative;
+	width: 550px;
+	z-index: 3;
+	bottom: 20px;
+	left: 60px;
+}
+
+.mini-orange {
+	position: relative;
+	bottom: 25px;
+}
+
+.mini-blue {
+	position: relative;
+	top: 15px;
+}
+
+.mini-umbrella {
+	position: relative;
+	top: 25px;
+	right: 10px;
+}
+
+/* bushes behind illustration */
+
+.bush {
+	position: absolute;
+	bottom: 20px;
+	z-index: 5;
+}
+
+.bush-left {
+	left: 120px;
+	width: 280px;
+}
+
+.bush-right {
+	right: 0px;
+	width: 150px;
+}
+
+/* -------------------------------- */
+/* CURRENT WEATHER CARD */
+/* -------------------------------- */
+
+.current-weather-card {
+	background: #fef6e9;
+	border: 2px solid var(--line);
+	border-radius: 32px;
+	padding: 3rem 2rem;
+	width: 100%;
+	max-width: 300px;
+	justify-self: left;
+	text-align: center;
+}
+
+.location-label {
+	font-size: 0.9rem;
+	letter-spacing: 0.08em;
+}
+
+.current-weather-card h2 {
+	font-family: "Pacifico", cursive;
+	color: var(--orange);
+	font-size: 2.5rem;
+	margin: 0.5rem 0 1.5rem;
+}
+
+.current-weather-card ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 	font-size: 1.2rem;
-	opacity: 0.85;
-	letter-spacing: 0.04em;
+}
+
+/* -------------------------------- */
+/* CITY GRID */
+/* -------------------------------- */
+
+.city-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 0.5fr));
+	gap: 0.5rem;
+	max-width: 800px;
+	margin: 0 auto 1rem;
+	/* margin: 0 auto 1rem; */
+}
+
+/* CITY CARD */
+
+.city-card {
+	position: relative;
+	background: #fef6e9;
+	border: 2px solid var(--line);
+	border-radius: 28px;
+	padding: 2rem;
+	min-height: 314px;
+	max-width: 240px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
 	align-items: center;
 	text-align: center;
-	justify-content: center;
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
+}
 
+/* WEATHER INFO */
+
+.city-info {
+	position: relative;
+	z-index: 1;
+	display: flex;
 	flex-direction: column;
-	gap: 0.25rem;
-}
-
-.card-city {
-	font-size: 1.5rem;
-	opacity: 0.85;
+	gap: 0.6rem;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
 	letter-spacing: 0.04em;
-	color: #ff4500;
+	opacity: 1;
+	transition:
+		opacity 0.35s ease,
+		transform 0.35s ease;
 }
 
-/* City overlay (default hidden) */
-.card-overlay {
+/* HOVER OVERLAY */
+
+.featured {
 	position: absolute;
 	inset: 0;
-	z-index: 2;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	background: rgba(0, 0, 0, 0.4);
+	justify-content: center;
+	background: #d5e9e4;
 	opacity: 0;
-	transition: opacity 0.6s ease;
-	border-radius: 6px;
-	pointer-events: none; /* important, prevents hover flicker */
+	transition: opacity 0.35s ease;
+	z-index: 2;
+	pointer-events: none;
 }
 
-.card:hover .card-text {
-	opacity: 0;
+/* CITY NAME */
+
+.featured h3 {
+	font-family: "Pacifico", cursive;
+	font-size: 2rem;
+	color: var(--orange);
+	transform: translateY(10px);
+	transition:
+		transform 0.35s ease,
+		opacity 0.35s ease;
 }
 
-.card:hover .card-overlay {
-	transition: color 1s;
+/* HOVER EFFECTS */
+
+.city-card:hover {
+	transform: translateY(-8px);
+}
+
+.city-card:hover .city-info {
+	opacity: 0;
+	transform: scale(0.96);
+}
+
+.city-card:hover .featured {
 	opacity: 1;
 }
 
-.card:hover:before,
-.card:hover:after {
-	animation: none;
-	opacity: 0;
-	text-align: center;
+.city-card:hover .featured h3 {
+	transform: translateY(0);
 }
 
-.card::before {
-	content: "";
-	width: 104%;
-	height: 102%;
-	border-radius: 8px;
-	position: absolute;
-	z-index: -1;
-	top: -1%;
-	left: -2%;
-	animation: spin 2.5s linear infinite;
-}
-
-.card::after {
-	position: absolute;
-	content: "";
-	top: calc(var(--card-height) / 6);
-	left: 0;
-	right: 0;
-	z-index: -1;
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
-	transform: scale(0.8);
-	filter: blur(calc(var(--card-height) / 6));
-	background-image: linear-gradient(
-		var(--rotate),
-		#5ddcff,
-		#3c67e3 43%,
-		#4e00c2
-	);
-	opacity: 1;
-	transition: opacity 0.5s;
-	animation: spin 2.5s linear infinite;
-}
+/* -------------------------------- */
+/* FOOTER */
+/* -------------------------------- */
 
 footer {
-	color: #5ddcff;
-	margin-top: auto;
-	padding-top: 20px;
 	text-align: center;
-	margin-bottom: 0;
-	padding-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	font-size: 0.95rem;
+	font-family: "Quicksand", sans-serif;
+	font-style: bold;
 }
 
-a {
+footer a {
 	text-decoration: none;
-	color: #b2e9e9;
-	font-family: monospace;
+	color: #5d8f8f;
 }
 
+footer p {
+	font-weight: 500;
+}
+
+/* -------------------------------- */
+/* DECOR */
+/* -------------------------------- */
+
+.cloud,
+.birds,
+.foreground-bush {
+	position: absolute;
+	pointer-events: none;
+}
+
+.cloud-left {
+	top: 70px;
+	left: 50px;
+	width: 180px;
+}
+
+.cloud-right {
+	top: 40px;
+	right: 40px;
+	width: 220px;
+}
+
+.birds-left {
+	top: 120px;
+	left: 280px;
+	width: 60px;
+}
+
+.birds-right {
+	top: 160px;
+	right: 210px;
+	width: 40px;
+}
+
+.foreground-bush {
+	bottom: 0;
+	z-index: 5;
+}
+
+.foreground-bush.left {
+	left: 0;
+	width: 340px;
+}
+
+.foreground-bush.right {
+	right: 0;
+	width: 320px;
+}
+
+/* -------------------------------- */
 /* MOBILE */
-@media (max-width: 600px) {
-	h1 {
-		font-size: 2.3rem;
+/* -------------------------------- */
+
+@media (max-width: 900px) {
+	body {
+		padding: 1rem;
 	}
 
-	h2 {
-		font-size: 1.6rem;
+	.page-frame {
+		padding: 2rem 1.2rem 6rem;
 	}
 
-	h3 {
-		font-size: 1.6rem;
-		letter-spacing: 0.1rem;
+	.hero-layout {
+		grid-template-columns: 1fr;
 	}
 
-	.container.img {
-		flex-direction: column;
+	.hero-illustration {
+		min-height: 420px;
 	}
 
-	.selflocation {
-		border-radius: 20px;
-		justify-content: center;
-		align-items: center;
-		align-content: center;
-		margin-top: 10px;
-		margin: 20px;
-		width: 80%;
-		max-width: 80%;
+	.weather-blob {
+		width: 100%;
+		max-width: 420px;
+		height: 320px;
 	}
-}
 
-/* GOOGLE FONTS */
-.vampiro-one-regular {
-	font-family: "Vampiro One", system-ui;
-	font-weight: 400;
-	font-style: normal;
-}
+	.weather-girl {
+		width: 280px;
+	}
 
-.alumni-sans-pinstripe-regular {
-	font-family: "Alumni Sans Pinstripe", sans-serif;
-	font-weight: 400;
-	font-style: normal;
+	.current-weather-card h2 {
+		font-size: 3rem;
+	}
+
+	.cloud-right,
+	.birds-right {
+		display: none;
+	}
 }

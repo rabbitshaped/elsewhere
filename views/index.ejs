@@ -7,7 +7,8 @@
   <!-- Google fonts used for typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Vampiro+One&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Pacifico&family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet">
 
   <!-- Main stylesheet -->
@@ -15,88 +16,129 @@
 </head>
 
 <body>
-  <!-- Title section -->
-  <div class="container title">
-    <h1 class="vampiro-one-regular">Elsewhere</h1>
-    <h3 class="alumni-sans-pinstripe-regular">Finding small comfort in data</h3>
-  </div>
-  <!-- Illustration + current location -->
-  <div class="container img">
-    <img src="/images/rain.png" class="img" />
-    <div class="selflocation">
-      <p>Your location:</p>
+  <div class="page-frame">
 
-      <!-- Only renders if weather data was obtained -->
-      <% if (here) { %>
-        <h2 class="city vampiro-one-regular">
-          <%= here.name %>
-        </h2>
-        <p>
-          <%= here.temp %>°C
-        </p>
-        <p>
-          <%= here.light %>
-        </p>
-        <p>wind <%= here.wind %> m/s</p>
-        <p>
-          <%= here.description %>
-        </p>
-        <% } %>
-    </div>
-  </div>
+    <!-- decorative clouds -->
+    <img class="cloud cloud-left" src="/images/decor/cloud-left.png" alt="Clouds floating left">
+    <img class="cloud cloud-right" src="/images/decor/cloud-right.png" alt="Clouds floating right">
 
-  <!-- Comparison cities -->
-  <section class="comparison">
+    <!-- birds -->
+    <img class="birds birds-left" src="/images/decor/birds-left.png" alt="Birds flying on the left">
+    <!-- <img class="birds birds-right" src="/images/decor/birds-right.png" alt="Birds flying on the right"> -->
 
-    <!-- Preventing an error in case cities would become undefined -->
-    <% if (cities && cities.length> 0) {%>
-      <!-- Loop through comparison cities returned by the server -->
-      <% cities.forEach(city=> { %>
-        <div class="card">
-          <!-- Weather conditions visible by default -->
-          <div class="card-text">
-            <p>
-              <%= city.temp %>°C
-            </p>
-            <p>
-              <%= city.light %>
-            </p>
-            <p>wind <%= city.wind %> m/s</p>
+    <!-- Title section -->
+    <header class="hero-header">
+      <h1 class="pacifico-regular">Elsewhere</h1>
+      <p class="quicksand-roundish"><img class="mini-blue" src="/images/decor/mini-lines-left-blue.png"> Small comfort
+        in distant skies
+        <img class="mini-blue" src="/images/decor/mini-lines-right-blue.png">
+      </p>
+    </header>
 
-            <!-- If there is "rain" or "snow", show the longer description of conditions -->
-            <% if (city.precipitation !==null) { %>
+    <!-- Illustration + current location -->
+    <main class="hero-layout">
+
+      <!-- illustration side -->
+      <section class="hero-illustration">
+
+        <!-- bottom bushes behind girl -->
+        <img class="bush bush-left" src="/images/decor/bush-left.png" alt="Left bush illustration">
+        <img class="bush bush-right" src="/images/decor/bush-right.png" alt="Right bush illustration">
+
+        <!-- weather girl -->
+        <img class="weather-girl" src="/images/rainy.png" alt="Weather girl on a rainy day">
+
+
+
+      </section>
+
+      <!-- weather card -->
+      <div class="current-weather-card">
+        <span class="location-label">YOUR LOCATION:</span>
+
+        <!-- Only renders if weather data was obtained -->
+        <% if (here) { %>
+          <h2>
+            <%= here.name %><img class="mini-orange" src="/images/decor/mini-lines-up-orange.png">
+          </h2>
+          <ul>
+            <li>
+              <%= here.temp %>°C
+            </li>
+            <li>
+              <%= here.light %>
+            </li>
+            <li>
+              wind <%= here.wind %> m/s
+            </li>
+            <li>
+              <%= here.description %>
+            </li>
+            <% } %>
+          </ul>
+      </div>
+    </main>
+
+    <!-- Comparison cities -->
+    <section class="city-grid">
+      <!-- Preventing an error in case cities would become undefined -->
+      <% if (cities && cities.length> 0) {%>
+        <!-- Loop through comparison cities returned by the server -->
+        <% cities.forEach(city=> { %>
+
+
+
+          <div class="city-card">
+            <!-- Weather conditions visible by default -->
+            <div class="city-info">
               <p>
-                <%= city.description %>
+                <%= city.temp %>°C
               </p>
-              <% } %>
+              <p>
+                <%= city.light %>
+              </p>
+              <p>wind <%= city.wind %> m/s</p>
 
+              <!-- If there is "rain" or "snow", show the longer description of conditions -->
+              <% if (city.precipitation !==null) { %>
+                <p>
+                  <%= city.description %>
+                </p>
+                <% } %>
+            </div>
 
+            <!-- Hover layer revealing the city name -->
+            <div class="featured">
+              <h3>
+                <%= city.name %>
+              </h3>
+            </div>
           </div>
+          <% }) %>
+            <%} %>
+    </section>
 
-          <!-- Hover layer revealing the city name -->
-          <div class="card-overlay">
-            <p class="card-city">
-              <%= city.name %>
-            </p>
-          </div>
-        </div>
-        <% }) %>
-          <%} %>
-  </section>
+    <!-- Footer -->
+    <footer>
 
-  <!-- Footer -->
-  <footer>
+      <p class="quicksand-roundish">
+        <img class="mini-umbrella" src="/images/decor/mini-umbrella.png" alt="Miniature umbrella">
+        Using OpenWeather and Geocoding API
+      </p>
+      <p class="quicksand-roundish">
+        <a href="https://github.com/rabbitshaped"> © Ira Baraton</a>
+        <!-- Print the current year automatically -->
+        <% const today=new Date(); %>
+          <%= today.getFullYear(); %>
+      </p>
+    </footer>
 
-    <p>
-      Using OpenWeather and Geocoding API
-    </p>
-    <p>
-      © <a href="https://github.com/rabbitshaped">Ira Baraton</a>
-      <!-- Print the current year automatically -->
-      <% const today=new Date(); %>
-        <%= today.getFullYear(); %>
-    </p>
-  </footer>
+
+    <!-- foreground bushes -->
+    <img class="foreground-bush left" src="/images/decor/foreground-left.png" alt="Left foreground bush">
+    <img class="foreground-bush right" src="/images/decor/foreground-right.png" alt="Right foreground bush">
+
+  </div>
 </body>
 
 </html>
