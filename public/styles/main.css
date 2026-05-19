@@ -1,6 +1,6 @@
 :root {
 	--bg: rgba(255, 255, 255, 0.35);
-	--line: #172033;
+	--line: rgba(35, 48, 66, 0.85);
 	--cyan: #bfdedf;
 	--cyan-dark: #7aa7ad;
 	--orange: #f26722;
@@ -22,6 +22,10 @@ body {
 	padding: 2rem;
 }
 
+p {
+	font-family: "Cause", sans-serif;
+}
+
 .page-frame {
 	width: min(1400px, 100%);
 	background: var(--bg);
@@ -38,25 +42,25 @@ body {
 
 .hero-header {
 	text-align: center;
-	margin-bottom: 5.5rem;
+	margin-bottom: 5rem;
 }
 
 .hero-header h1 {
-	font-family: "Pacifico", cursive;
-	font-size: clamp(4.5rem, 6vw, 3rem);
-	font-weight: normal;
+	font-family: "Meow Script", cursive;
+	font-size: clamp(6rem, 4vw, 3rem);
+	font-weight: bold;
 	color: var(--line);
 	line-height: 1;
-	margin-bottom: 0.5rem;
+	/* margin-bottom: 0.5rem; */
 }
 
 .hero-header p {
-	font-family: "Quicksand", sans-serif;
+	font-family: "Cause", sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.15em;
 	font-size: 1.3rem;
 	color: var(--cyan-dark);
-	margin-top: 0.5rem;
+	margin-top: 0rem;
 }
 
 /* -------------------------------- */
@@ -87,12 +91,12 @@ body {
 	width: 550px;
 	z-index: 3;
 	bottom: 20px;
-	left: 60px;
+	left: 70px;
 }
 
 .mini-orange {
 	position: relative;
-	bottom: 25px;
+	bottom: 10px;
 }
 
 .mini-blue {
@@ -139,19 +143,22 @@ body {
 	text-align: center;
 }
 
-.location-label {
+.location {
 	font-size: 0.9rem;
 	letter-spacing: 0.08em;
+	font-family: "Cause", sans-serif;
+	margin-bottom: 0.7rem;
 }
 
 .current-weather-card h2 {
-	font-family: "Pacifico", cursive;
+	font-family: "Meow Script", cursive;
 	color: var(--orange);
-	font-size: 2.5rem;
-	margin: 0.5rem 0 1.5rem;
+	font-size: 3rem;
+	margin: 0.7rem 0 1rem;
 }
 
 .current-weather-card ul {
+	font-family: "Cause", sans-serif;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
@@ -169,7 +176,6 @@ body {
 	gap: 0.5rem;
 	max-width: 800px;
 	margin: 0 auto 1rem;
-	/* margin: 0 auto 1rem; */
 }
 
 /* CITY CARD */
@@ -228,8 +234,9 @@ body {
 /* CITY NAME */
 
 .featured h3 {
-	font-family: "Pacifico", cursive;
-	font-size: 2rem;
+	font-family: "Meow Script", cursive;
+	font-size: 3rem;
+	font-style: bold;
 	color: var(--orange);
 	transform: translateY(10px);
 	transition:
@@ -266,8 +273,7 @@ footer {
 	flex-direction: column;
 	gap: 0.6rem;
 	font-size: 0.95rem;
-	font-family: "Quicksand", sans-serif;
-	font-style: bold;
+	font-family: "Cause", sans-serif;
 }
 
 footer a {
@@ -320,13 +326,44 @@ footer p {
 }
 
 .foreground-bush.left {
-	left: 0;
-	width: 340px;
+	left: -100px;
+	bottom: -20px;
+	width: 400px;
 }
 
 .foreground-bush.right {
-	right: 0;
-	width: 320px;
+	right: -100px;
+	bottom: -20px;
+	width: 420px;
+}
+
+/* -------------------------------- */
+/* BLUR SHADOW FOR SOFTENING EDGES */
+/* -------------------------------- */
+.city-card,
+.current-weather-card,
+.page-frame {
+	box-shadow:
+		0 0 0 1px rgba(255, 255, 255, 0.15),
+		0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* -------------------------------- */
+/* FONTS */
+/* -------------------------------- */
+
+.cause-title {
+	font-family: "Cause", cursive;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.meow-script-regular {
+	font-family: "Meow Script", cursive;
+	font-weight: 800;
+	font-style: bold;
+	margin-bottom: 0;
 }
 
 /* -------------------------------- */

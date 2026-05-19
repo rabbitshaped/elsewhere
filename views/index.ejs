@@ -7,8 +7,7 @@
   <!-- Google fonts used for typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Pacifico&family=Quicksand:wght@300..700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Meow+Script&display=swap"
     rel="stylesheet">
 
   <!-- Main stylesheet -->
@@ -24,12 +23,12 @@
 
     <!-- birds -->
     <img class="birds birds-left" src="/images/decor/birds-left.png" alt="Birds flying on the left">
-    <!-- <img class="birds birds-right" src="/images/decor/birds-right.png" alt="Birds flying on the right"> -->
+    <img class="birds birds-right" src="/images/decor/birds-right.png" alt="Birds flying on the right">
 
     <!-- Title section -->
     <header class="hero-header">
-      <h1 class="pacifico-regular">Elsewhere</h1>
-      <p class="quicksand-roundish"><img class="mini-blue" src="/images/decor/mini-lines-left-blue.png"> Small comfort
+      <h1 class="meow-script-regular">Elsewhere</h1>
+      <p class="cause-title"><img class="mini-blue" src="/images/decor/mini-lines-left-blue.png"> Small comfort
         in distant skies
         <img class="mini-blue" src="/images/decor/mini-lines-right-blue.png">
       </p>
@@ -54,7 +53,7 @@
 
       <!-- weather card -->
       <div class="current-weather-card">
-        <span class="location-label">YOUR LOCATION:</span>
+        <span class="location">YOUR LOCATION</span>
 
         <!-- Only renders if weather data was obtained -->
         <% if (here) { %>
@@ -121,11 +120,11 @@
     <!-- Footer -->
     <footer>
 
-      <p class="quicksand-roundish">
+      <p>
         <img class="mini-umbrella" src="/images/decor/mini-umbrella.png" alt="Miniature umbrella">
         Using OpenWeather and Geocoding API
       </p>
-      <p class="quicksand-roundish">
+      <p>
         <a href="https://github.com/rabbitshaped"> © Ira Baraton</a>
         <!-- Print the current year automatically -->
         <% const today=new Date(); %>
