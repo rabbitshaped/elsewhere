@@ -4,7 +4,9 @@
 
 I’m from Finland, so yes, the winters are long… but some people love the cold! ❄️
 
-<img width="400" alt="Elsewhere than here" src="https://github.com/user-attachments/assets/13b9c030-3911-4937-8ec1-018ce696ee18" />
+https://github.com/user-attachments/assets/e51dfb22-2a9d-42ef-9ec4-5aa79f0567a2
+
+
 
 ---
 
@@ -38,13 +40,11 @@ I’m from Finland, so yes, the winters are long… but some people love the col
 - Show windiness only if above a threshold (e.g., 10 m/s).
 - Consider displaying a city only if two “worse” conditions are met.
 - Allow automatic location detection from IP (currently defaults to Helsinki).
-- Provide links to **OpenWeather API**.
 
 ---
 
 ## Credits
 
-- **Background pattern:** by <a href="https://pattern.monster/">Pattern Monster</a>
 - **Fonts:** by <a href="https://fonts.google.com/">Google Fonts</a>
 - **Weather and geocoding data:** <a href="https://openweathermap.org/api">OpenWeather API</a>
 - **Graphics & illustrations:** Created by me
