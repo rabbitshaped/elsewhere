@@ -5,6 +5,8 @@
 	--cyan-dark: #7aa7ad;
 	--orange: #f26722;
 	--text: #1f2940;
+	--frame-width: 1400px;
+	--desktop-gutter: 2rem;
 }
 
 * {
@@ -19,7 +21,14 @@ body {
 	color: var(--text);
 	display: flex;
 	justify-content: center;
-	padding: 2rem;
+	padding: var(--desktop-gutter);
+}
+
+/* Keep the frame at its desktop width before scaling the complete page. */
+body.fit-layout {
+	width: calc(var(--frame-width) + 2 * var(--desktop-gutter));
+	margin-inline: auto;
+	zoom: var(--layout-scale, 1);
 }
 
 p {
@@ -27,7 +36,7 @@ p {
 }
 
 .page-frame {
-	width: min(1400px, 100%);
+	width: min(var(--frame-width), 100%);
 	background: var(--bg);
 	border: 2px solid var(--line);
 	border-radius: 32px;
